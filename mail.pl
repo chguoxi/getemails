@@ -26,14 +26,14 @@ $smtp->data();
 
 # Send the header
 
-$smtp->datasend("To: $mailton");
-$smtp->datasend("From: $mailfromn");
-$smtp->datasend("Subject: $subjectn");
+$smtp->datasend("To: $mailto");
+$smtp->datasend("From: $mailfrom");
+$smtp->datasend("Subject: $subject");
 $smtp->datasend("n");
 
 # Send the message
 
-$smtp->datasend("$textnn");
+$smtp->datasend("$text");
 
 # Send the termination string
 
