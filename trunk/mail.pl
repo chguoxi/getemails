@@ -1,4 +1,5 @@
 ﻿#!perl
+# 需安装 Authen::SASL模块
 use utf8;
 use Net::SMTP;
 
