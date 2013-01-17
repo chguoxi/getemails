@@ -1,5 +1,5 @@
 ﻿#!perl
-
+use utf8;
 use Net::SMTP;
 
 my $mailhost = "smtp.163.com"; # the smtp host
@@ -10,6 +10,8 @@ my $mailto = '995306681@qq.com'; # the recipient list
 
 my $subject = "此为标题";
 my $text = "此为正文n第二行位于此。";
+
+
 
 my $smtp = Net::SMTP->new($mailhost, Hello => 'localhost', Timeout => 120, Debug => 1);
 
