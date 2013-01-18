@@ -15,7 +15,7 @@ my $subject = "测试发信";
 
 my $text = "此为正文n第二行位于此。";
 
-my $password = '15930561gx';
+my $password = '15930561gx';	
 
 $subject = Encode::encode("utf8", $subject);
 $text = Encode::encode("utf8", $text);
@@ -28,7 +28,7 @@ sub send_email{
 	my ($mailhost,$mailfrom,$mailto,$subject,$text) = @_;
 	my $smtp = Net::SMTP->new($mailhost, Hello => 'localhost', Timeout => 120, Debug => 1);
 	# anth login, type your user name and password here
-	$smtp->auth($mailfrom,$password); #用户名和密码确定没错
+	$smtp->auth($mailfrom,$password);
 	$smtp->mail($mailfrom);
 	$smtp->to($mailto);
 	# Start the mail
