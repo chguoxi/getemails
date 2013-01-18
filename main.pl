@@ -5,10 +5,14 @@ use strict;
 require 'send.pl';
 require 'mail.pl';
 # the speed of sending, how many second send an email
-my $SPEED = 5;
+my $speed = 5;
 # send how many emails have to change the proxy
-my $CHAGE_PROXY = 2000;
-
+my $chage_proxy = 2000;
 # the receiver email directory
+my $receivers = 'receivers';
+# log file dir
+my $logs = 'logs';
+
+
 
 
