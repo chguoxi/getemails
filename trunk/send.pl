@@ -20,7 +20,7 @@ my $password = '15930561gx';
 $subject = Encode::encode("utf8", $subject);
 $text = Encode::encode("utf8", $text);
 
-send_email( $mailhost, $mailfrom, $mailto, $subject, $text,$smtpport);
+send_email( $mailhost, $mailfrom, $mailto, $subject, $text);
 
 
 
