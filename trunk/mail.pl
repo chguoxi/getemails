@@ -15,38 +15,36 @@ my $subject = "测试发信";
 
 my $text = "此为正文n第二行位于此。";
 
+my $password = '15930561gx';
 
 $subject = Encode::encode("utf8", $subject);
 $text = Encode::encode("utf8", $text);
 
+send_email( $mailhost, $mailfrom, $mailto, $subject, $text,$smtpport);
 
-my $smtp = Net::SMTP->new($mailhost, Hello => 'localhost', Timeout => 120, Debug => 1);
 
-# anth login, type your user name and password here
 
-$smtp->auth('lunluorenadmin@163.com','15930561gx'); #用户名和密码确定没错
+sub send_email{
+	my ($mailhost,$mailfrom,$mailto,$subject,$text) = @_;
+	my $smtp = Net::SMTP->new($mailhost, Hello => 'localhost', Timeout => 120, Debug => 1);
+	# anth login, type your user name and password here
+	$smtp->auth($mailfrom,$password); #用户名和密码确定没错
+	$smtp->mail($mailfrom);
+	$smtp->to($mailto);
+	# Start the mail
+	$smtp->data();
+	# Send the header
+	$smtp->datasend("Subject: $subject\n");
+	# set mail from
+	$smtp->datasend("From: $mailfrom\n");
+	# the email address send to
+	$smtp->datasend("To: $mailto\n");
+	# line
+	$smtp->datasend("\n");
+	# Send the message
+	$smtp->datasend("$text");
+	# Send the termination string
+	$smtp->dataend();
+	$smtp->quit;
+}
 
-$smtp->mail($mailfrom);
-$smtp->to($mailto);
-
-# Start the mail
-
-$smtp->data();
-
-# Send the header
-$smtp->datasend("Subject: $subject\n");
-
-$smtp->datasend("From: $mailfrom\n");
-
-$smtp->datasend("To: $mailto\n");
-
-$smtp->datasend("\n");
-
-# Send the message
-
-$smtp->datasend("$text");
-
-# Send the termination string
-
-$smtp->dataend();
-$smtp->quit;
