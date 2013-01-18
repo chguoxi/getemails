@@ -41,10 +41,10 @@ sub send_email{
 	# line
 	$smtp->datasend("\n");
 	# Send the message
-	$smtp->datasend("$text");
+	my $status = $smtp->datasend("$text");
 	# Send the termination string
 	$smtp->dataend();
 	$smtp->quit;
-	
+	return $status;
 }
 

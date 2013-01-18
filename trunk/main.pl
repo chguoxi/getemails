@@ -13,6 +13,12 @@ my $receivers = 'receivers';
 # log file dir
 my $logs = 'logs';
 
+my @receivers_f = glob "$receivers/*.txt";
+
+foreach my $receiver_f(@receivers_f){
+	
+}
+
 
 
 
