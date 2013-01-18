@@ -4,7 +4,6 @@ use Encode;
 use utf8;
 use Net::SMTP;
 
-
 my $mailhost = "smtp.163.com"; # the smtp host
 
 my $mailfrom = 'lunluorenadmin@163.com'; # your email address
