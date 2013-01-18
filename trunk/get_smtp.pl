@@ -17,13 +17,11 @@ sub get_smpt{
 	# get rand file
 	my $file = @smtps[$rand];
 	open SMTPOP,$file;
-	
 	# lines of the file
-	
 	my $totallines = &get_file_lines($file);
 
 	my $randline = int(rand($totallines));
-	
+	# the current line
 	my $currentline = 0;
 	while(<SMTPOP>){
 		$currentline++;
