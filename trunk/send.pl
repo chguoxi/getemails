@@ -45,5 +45,6 @@ sub send_email{
 	# Send the termination string
 	$smtp->dataend();
 	$smtp->quit;
+	
 }
 
