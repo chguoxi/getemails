@@ -1,4 +1,4 @@
-﻿lunluorenadmin@163.com    15930561gx     smtp.163.com    25
+lunluorenadmin@163.com    15930561gx     smtp.163.com    25
 lunluoren123@foxmail.com  15930561gx     smtp.qq.com     25
 lunluoren123@sohu.com     15930561gx     smtp.sohu.com   25
 lunluoren111@sohu.com     15930561gx     smtp.sohu.com   25
