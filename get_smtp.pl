@@ -18,7 +18,6 @@ sub get_smpt{
 	my $totallines = &get_file_lines($file);
 	
 	my $randline = int(rand($totallines));
-	print "$totallines\n";
 	
 	# the current line
 	my $currentline = 0;
