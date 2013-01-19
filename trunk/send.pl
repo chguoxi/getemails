@@ -20,11 +20,9 @@ use Net::SMTP;
 #
 #send_email( $mailhost, $mailfrom, $mailto, $subject, $text);
 
-
-
 sub send_email{
 	my ($mailhost,$mailfrom,$password,$mailto,$subject,$text) = @_;
-	my $smtp = Net::SMTP->new($mailhost, Hello => 'localhost', Timeout => 3, Debug => 1);
+	my $smtp = Net::SMTP->new($mailhost, Hello => 'localhost', Timeout => 3, Debug => 0);
 	# anth login, type your user name and password here
 	$smtp->auth($mailfrom,$password);
 	$smtp->mail($mailfrom);
@@ -40,10 +38,12 @@ sub send_email{
 	# line
 	$smtp->datasend("\n");
 	# Send the message
+	
 	$smtp->datasend("$text");
+	
 	# Send the termination string
 	$smtp->dataend();
 	$smtp->quit;
-	return $status;
+	
 }
 1
