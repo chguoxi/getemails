@@ -41,4 +41,4 @@ sub get_file_lines{
 	}
 	return $lines;
 }
-1
+1;
