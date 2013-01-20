@@ -2,8 +2,8 @@
 # main entrence
 use strict;
 # import method
-require 'get_smtp.pl';
-require 'send.pl';
+do 'get_smtp.pl';
+do 'send.pl';
 # the speed of sending, how many second send an email
 my $speed = 5;
 # send how many emails have to change the proxy
@@ -24,12 +24,7 @@ foreach my $receiver_f(@receivers_f){
 	while ( my $mailto = <RECEIVER> ){
 		chomp $mailto;
 		my ($mailfrom,$password,$mailhost,$serverport) = &get_smpt();
-		if(send_email($mailhost,$mailfrom,$password,$serverport,$mailto,$subject,$text)){
-			print "success\n";
-		}
-		else{
-			print "failed\n";
-		}
+		print send_email($mailhost,$mailfrom,$password,$serverport,$mailto,$subject,$text);
 	}
 }
 

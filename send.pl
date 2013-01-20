@@ -26,8 +26,10 @@ sub send_email{
 	# Send the message
 	$smtp->datasend("$text");
 	# Send the termination string
-	$smtp->dataend();
+	$status = $smtp->dataend();
+	
 	$smtp->quit;
+	return $status;
 	#return send email status
 }
-1;
+
