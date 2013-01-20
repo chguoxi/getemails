@@ -15,7 +15,7 @@ my $logs = 'logs';
 
 my @receivers_f = glob "$receivers/*.txt";
 #mail title
-my $subject = '测试发送邮件5';
+my $subject = '邮件测试第1.8版';
 #mail content
 my $text    = '这是邮件内容，随机函数测试 tttt';
 
@@ -24,7 +24,12 @@ foreach my $receiver_f(@receivers_f){
 	while ( my $mailto = <RECEIVER> ){
 		chomp $mailto;
 		my ($mailfrom,$password,$mailhost,$serverport) = &get_smpt();
-		send_email($mailhost,$mailfrom,$password,$mailto,$subject,$text);
+		if(send_email($mailhost,$mailfrom,$password,$serverport,$mailto,$subject,$text)){
+			print "success\n";
+		}
+		else{
+			print "failed\n";
+		}
 	}
 }
 
