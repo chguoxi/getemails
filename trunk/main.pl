@@ -24,7 +24,8 @@ foreach my $receiver_f(@receivers_f){
 	while ( my $mailto = <RECEIVER> ){
 		chomp $mailto;
 		my ($mailfrom,$password,$mailhost,$serverport) = &get_smpt();
-		print send_email($mailhost,$mailfrom,$password,$serverport,$mailto,$subject,$text);
+		print "sending email to $mailto \n\r";
+		send_email($mailhost,$mailfrom,$password,$serverport,$mailto,$subject,$text);
 	}
 }
 
